@@ -1,15 +1,14 @@
 export default async function preview(req, res) {
   const corsOrigin =
     process.env.NODE_ENV === 'development'
-      ? `http://localhost:3333`
-      : `https://recipe.sanity.studio`
+      ? `http://localhost:4000`: `https://${req.headers.host}`
 
   res.setHeader('Access-Control-Allow-Origin', corsOrigin)
   res.setHeader('Access-Control-Allow-Credentials', true)
 
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  if (req.query.secret !== `bji1nexeor5cuxtpqqexw3wnp7rdzo6d9nuqakjrckostkod`) {
+  if (req.query.secret !== `abcd12345efghi000`) {
     return res.status(401).json({ message: `Invalid Secret` })
   }
 
