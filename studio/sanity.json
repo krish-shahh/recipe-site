@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "project": {
+    "name": "Recipes"
+  },
+  "api": {
+    "projectId": "749wb7mg",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/dashboard",
+    "@sanity/desk-tool",
+    "dashboard-widget-structure-menu",
+    "dashboard-widget-document-list",
+    "dashboard-widget-netlify",
+    "@sanity/vision"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./src/schemas/index"
+    },
+    {
+      "implements": "part:@sanity/desk-tool/structure",
+      "path": "./src/desk-structure"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./src/dashboard-config"
+    }
+  ]
+}
